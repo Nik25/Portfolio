@@ -1,0 +1,202 @@
+/*
+  style.css
+  Modern, responsive portfolio styles for Niketan Hambarde
+  Uses CSS variables for light/dark themes and reusable classes.
+*/
+
+:root{
+  --bg: #0f1724;
+  --card: rgba(255,255,255,0.04);
+  --muted: #98a0ad;
+  --accent: linear-gradient(135deg,#6a11cb 0%,#2575fc 100%);
+  --highlight: #7dd3fc;
+  --glass: rgba(255,255,255,0.04);
+  --text: #e6eef8;
+  --accent-solid: #2575fc;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Light theme variables */
+.light {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0b1220;
+  --accent-solid: #0b5cff;
+}
+
+html{scroll-behavior:smooth}
+body{
+  background: radial-gradient(1200px 400px at 10% 10%, rgba(37,117,252,0.08), transparent),
+              radial-gradient(800px 300px at 90% 90%, rgba(122,69,255,0.06), transparent),
+              var(--bg);
+  color:var(--text);
+  font-family:var(--font-family, Inter, system-ui, -apple-system, 'Segoe UI', Roboto);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Navbar */
+.navbar{background:transparent}
+.navbar .navbar-brand{color:var(--text)}
+.navbar .nav-link{color:rgba(255,255,255,0.8)}
+.navbar .nav-link:hover{color:var(--highlight)}
+
+/* Hero */
+.hero-section{
+  padding:6rem 0;
+  background:linear-gradient(180deg, rgba(255,255,255,0.08), transparent 40%);
+}
+.hero-content{color:var(--text)}
+.hero-content .lead,
+.hero-content p,
+.hero-content .social a{color:var(--text)}
+.text-highlight{background:linear-gradient(90deg,#7dd3fc, #7c3aed); -webkit-background-clip:text; color:transparent}
+.profile-card{width:320px;height:320px;display:flex;align-items:center;justify-content:center}
+.profile-card img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:6px solid rgba(255,255,255,0.04)}
+
+/* Reusable cards */
+.card{background:var(--card);border:0;color:var(--text)}
+
+/* Skill cards */
+.skill-card{background:transparent;border:1px solid rgba(255,255,255,0.04);border-radius:0.5rem}
+
+/* Timeline */
+.timeline{position:relative;padding-left:1.5rem}
+.timeline::before{content:'';position:absolute;left:.75rem;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent-solid),#6a11cb);opacity:0.35}
+.timeline-item{position:relative;padding:1.25rem 1rem 1.25rem 2.5rem;margin-bottom:1.5rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:1rem}
+.timeline-item::before{content:'';position:absolute;left:-.95rem;top:1.5rem;width:14px;height:14px;border-radius:50%;background:var(--accent-solid);box-shadow:0 0 0 4px rgba(37,117,252,0.12)}
+.timeline-date{display:inline-block;margin-bottom:.5rem;padding:.2rem .75rem;border-radius:999px;background:rgba(37,117,252,0.12);color:var(--highlight);font-size:.85rem;font-weight:600}
+.timeline-item h5{margin-bottom:.35rem}
+.timeline-item p.small{margin-bottom:.5rem;color:var(--muted)}
+.timeline-item p.mb-0{color:var(--text);line-height:1.65}
+
+/* Light theme adjustments */
+body.light, body.light .card, body.light .navbar, body.light input.form-control, body.light textarea.form-control {
+  color: var(--text);
+}
+
+body.light {
+  background: radial-gradient(1200px 400px at 10% 10%, rgba(37,117,252,0.08), transparent),
+              radial-gradient(800px 300px at 90% 90%, rgba(122,69,255,0.06), transparent),
+              var(--bg);
+}
+
+body.light .card {
+  background: var(--card);
+  border-color: rgba(0,0,0,0.08);
+}
+
+body.light .navbar {
+  background: rgba(255,255,255,0.92);
+}
+
+body.light .navbar .nav-link {
+  color: rgba(0,0,0,0.7);
+}
+
+body.light .navbar .nav-link:hover {
+  color: var(--accent-solid);
+}
+
+body.light .navbar .navbar-brand {
+  color: var(--text);
+}
+
+body.light .btn-primary {
+  background: var(--accent-solid);
+}
+
+body.light .profile-card img {
+  border-color: rgba(0,0,0,0.08);
+}
+
+body.light .skill-card {
+  background: rgba(255,255,255,0.9);
+}
+
+body.light .timeline-item {
+  background: rgba(255,255,255,0.85);
+  border-color: rgba(0,0,0,0.08);
+}
+
+body.light .timeline::before {
+  opacity: 0.2;
+}
+
+body.light .timeline-item::before {
+  box-shadow: 0 0 0 4px rgba(37,117,252,0.08);
+}
+
+body.light .hero-section {
+  background: linear-gradient(180deg, rgba(247,250,252,0.85), transparent 40%);
+}
+
+body.light .hero-content {
+  color: var(--text);
+}
+
+body.light .hero-content .social a {
+  color: rgba(0,0,0,0.75);
+}
+
+body.light .btn-outline-light {
+  color: var(--text);
+  border-color: rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.92);
+}
+
+body.light .btn-outline-light:hover {
+  background: rgba(255,255,255,1);
+}
+
+body.light .btn-light.text-dark {
+  color: var(--text);
+  background: rgba(255,255,255,0.95);
+}
+
+body.light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+body.light .navbar-toggler {
+  border-color: rgba(0,0,0,0.15);
+}
+
+body.light .navbar-toggler-icon {
+  filter: none;
+}
+
+body.light .navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Footer */
+footer{border-top:1px solid rgba(255,255,255,0.03);background:transparent}
+
+/* Buttons */
+.btn-primary{background:var(--accent-solid);border:0}
+
+/* Back to top */
+#backToTop{position:fixed;right:1.25rem;bottom:1.25rem;display:none;z-index:999}
+
+/* Small screens */
+@media (max-width: 767px){
+  .hero-section{padding:3.5rem 0}
+  .profile-card{width:220px;height:220px}
+}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(20px);transition:all .6s cubic-bezier(.2,.9,.3,1)}
+.reveal.show{opacity:1;transform:none}
+
+/* Form inputs */
+input.form-control, textarea.form-control{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+
+/* Accessibility focus */
+a:focus, button:focus, input:focus, textarea:focus{outline:3px solid rgba(37,117,252,0.12);outline-offset:2px}
+
+/* Utility */
+.small{text-transform:inherit}
+
+/* Comments: Keep CSS modular and reusable; variables allow theme toggling via JS */
